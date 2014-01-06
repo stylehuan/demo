@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="edge"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title></title>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <style type="text/css">
+        .filed {
+            border: 1px solid #ddd;
+            padding: 3px;
+        }
+
+        #textarea {
+            border: 1px solid #6f980b;
+            width: 400px;
+            height: 50px;
+            line-height: 16px;
+            padding: 3px 5px;
+            overflow: hidden
+        }
+        .btns a{padding: 2px 20px;border: 1px solid #bbb;background-color: #ddd;}
+        .btns a:hover{text-decoration: none;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>模拟PlaceHolder</h1>
+
+    <div class="pb20">
+        <h3>例子1</h3>
+        <p class="f_s_14 text_gray_6 mb10">输入框占位效果</p>
+        <label for="userName">用户名：</label>
+        <input type="text" id="userName" class="filed" value=""/>
+    </div>
+    <div class="code_box">
+        <pre class="brush: js;">
+            var text = new $.IC.PlaceHolder('#userName',{
+                text: "请输入您的用户名"
+            });
+        </pre>
+    </div>
+    <div class="pb20">
+        <h3>例子2</h3>
+        <p class="f_s_14 text_gray_6 mb10">textarea占位效果</p>
+        <textarea id="textarea" class="filed"></textarea>
+        <p class="btns">
+            <a id="enable" href="#" class="d_inline_block">可用</a>
+            <a id="disable" href="#" class="d_inline_block">不可用</a>
+        </p>
+    </div>
+    <div class="code_box">
+        <pre class="brush: js;">
+            var text = new $.IC.PlaceHolder('#textarea',{
+                text: "请输入您的用户名"
+            });
+
+            $("#enable").on("click", function(){
+                textarea.enable();
+                return false;
+            });
+            $("#disable").on("click", function(){
+                textarea.disable();
+                return false;
+            });
+        </pre>
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/shBrushJScript/shcore.js"></script>
+<script type="text/javascript" src="../js/shBrushJScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="placeholder.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    $(function () {
+        var text = new $.IC.PlaceHolder('#userName', {
+            text: "请输入您的用户名"
+        });
+        var textarea = new $.IC.PlaceHolder('#textarea', {
+            text: "来说两句吧，让大家为我加油"
+        });
+
+        $("#enable").on("click", function(){
+            textarea.enable();
+            return false;
+        });
+        $("#disable").on("click", function(){
+            textarea.disable();
+            return false;
+        });
+
+    })
+</script>
+</body>
+</html>
